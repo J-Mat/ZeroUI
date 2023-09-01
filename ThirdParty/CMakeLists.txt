@@ -21,12 +21,6 @@ if(NOT TARGET D3D12MemAlloc)
 endif()
 
 
-if(NOT TARGET tinyxml2)
-	  add_subdirectory(tinyxml2)
-    set_target_properties(tinyxml2 PROPERTIES FOLDER ${ThirdPartyFolder})
-    NoWarning(tinyxml2)
-endif()
-
 if(NOT TARGET mINI)
 	add_subdirectory(mINI)
   set_target_properties(mINI PROPERTIES FOLDER ${ThirdPartyFolder})
