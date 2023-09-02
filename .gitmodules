@@ -4,3 +4,6 @@
 [submodule "ThirdParty/crossguid"]
 	path = ThirdParty/crossguid
 	url = https://github.com/graeme-hill/crossguid.git
+[submodule "ThirdParty/spdlog"]
+	path = ThirdParty/spdlog
+	url = https://github.com/gabime/spdlog.git
