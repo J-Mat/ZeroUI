@@ -1,4 +1,5 @@
 #pragma once
+#include "Core.h"
 
 namespace ZeroUI
 {
@@ -104,8 +105,6 @@ namespace ZeroUI
 		float Opacity;
 		/** the radius of the corner rounding of the window */
 		int32_t CornerRadius;
-
-		FWindowSizeLimits SizeLimits;
 
 		/** false if the window should respond to system DPI changes, otherwise this will be handled, internally, by the application */
 		bool bManualDPI = false;
