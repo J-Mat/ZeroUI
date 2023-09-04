@@ -2,9 +2,7 @@
 
 #pragma once
 
-#include "CoreTypes.h"
-#include "Math/MathFwd.h"
-#include "Templates/SharedPointer.h"
+#include "Core.h"
 
 struct FGenericWindowDefinition;
 namespace ZeroUI
@@ -27,7 +25,7 @@ namespace ZeroUI
 			NumWindowModes
 		};
 
-		static inline Type ConvertIntToWindowMode(int32 InWindowMode)
+		static inline Type ConvertIntToWindowMode(int32_t InWindowMode)
 		{
 			Type WindowMode = Windowed;
 			switch (InWindowMode)
@@ -90,6 +88,15 @@ namespace ZeroUI
 
 		/** Gets the OS Window handle in the form of a void pointer for other API's */
 		virtual void* GetOSWindowHandle() const;
+
+		/**
+		 * @return ratio of pixels to SlateUnits in this window.
+		 * E.g. DPIScale of 2.0 means there is a 2x2 pixel square for every 1x1 SlateUnit.
+		 */
+		virtual float GetDPIScaleFactor() const;
+
+		/** sets a new DPI scale factor */
+		virtual void SetDPIScaleFactor(const float Factor);
 
 	protected:
 

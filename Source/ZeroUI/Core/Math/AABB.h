@@ -3,7 +3,7 @@
 
 #include "ZMath.h"
 
-namespace ZeroUI 
+namespace ZeroUI
 {
 	namespace ZMath
 	{
@@ -22,7 +22,7 @@ namespace ZeroUI
 
 			FAABB(const ZMath::vec3& min, const ZMath::vec3& max)
 				: Min(min), Max(max) {}
-			
+
 			void Merge(const ZMath::vec3& Pos)
 			{
 				Min.x = std::min(Min.x, Pos.x);

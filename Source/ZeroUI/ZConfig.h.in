@@ -1,0 +1,35 @@
+#pragma once
+
+#include <filesystem>
+
+// version variable that will be substituted by cmake
+// This shows an example using the @ variable type
+
+namespace ZeroUI
+{
+	namespace ZConfig
+	{
+		static const std::filesystem::path EngineSourceDir = "@SourceDir@";
+		static const std::filesystem::path AssetsDir = "@AssetsDir@";
+		static const std::filesystem::path ShaderDir = AssetsDir / "Shader";
+
+		static std::filesystem::path GetAssetReletivePath(const std::filesystem::path& FullPath)
+		{
+			std::string FullName = FullPath.string();
+			std::string AssetsName = AssetsDir.string();
+			std::string Res = FullName.substr(AssetsName.length() + 1);
+			return Res;
+		}
+
+
+		static const std::filesystem::path GetShaderFullPath(const std::string& RelativePath)
+		{
+			return ShaderDir / RelativePath;
+		}
+
+		static const std::filesystem::path GetAssestsFullPath(const std::string& RelativePath)
+		{
+			return AssetsDir / RelativePath;
+		}
+	}
+}

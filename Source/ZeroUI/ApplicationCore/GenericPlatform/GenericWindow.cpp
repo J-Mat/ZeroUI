@@ -17,4 +17,14 @@ namespace ZeroUI
 	{
 		return nullptr;
 	}
+
+	float FGenericWindow::GetDPIScaleFactor() const
+	{
+		return 1.0f;
+	}
+
+	void FGenericWindow::SetDPIScaleFactor(const float Factor)
+	{
+		// empty default functionality
+	}
 }

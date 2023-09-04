@@ -1,6 +1,6 @@
 #pragma once 
 #include "PCH.h" 
-#include "Log.h"
+#include "Core/Log.h"
 
 
 #define EDITOR_MODE 1
@@ -31,8 +31,9 @@
 
 #define ZERO_INVALID_ID uint32_t(-1)
 
-namespace Zero
+namespace ZeroUI
 {
+	enum { INDEX_NONE = -1 };
 // Set the name of an std::thread.
 // Useful for debugging.
 	const DWORD MS_VC_EXCEPTION = 0x406D1388;
@@ -85,15 +86,4 @@ namespace Zero
 
 	template<typename T>
 	using Weak = std::weak_ptr<T>;
-}
-
-namespace std
-{
-	template <> struct hash<Zero::FTextureHandle>
-	{
-		size_t operator()(Zero::FTextureHandle const& h) const
-		{
-			return hash<decltype(h.ID)>()(h.ID);
-		}
-	};
 }

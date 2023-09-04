@@ -31,12 +31,10 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "Utils.h"
-#include "Math/ZMath.h"
-#include "Math/AABB.h"
-#include "Math/Ray.h"
+#include "Core/Math/ZMath.h"
+#include "Core/Math/AABB.h"
+#include "Core/Math/Ray.h"
 
 #include <Windows.h>
 #include <wincodec.h>
 #include <windowsx.h>
-#include "json.hpp"

@@ -1,10 +1,10 @@
 #pragma once
 
-#include <map> 
+#include <map>
 #include <functional>
 #include "Utils.h"
 
-namespace ZeroUIUI
+namespace ZeroUI
 {
 	template< class TReturn, typename ...ParamTypes>
 	class FDelegateBase

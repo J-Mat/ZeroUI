@@ -4,10 +4,9 @@ namespace ZeroUI
 {
 	struct FGenericPlatformApplicationMisc
 	{
-		static void PreInit();
+		static void PreInit() {};
 
-		static void Init();
-		static void platform_pre_init(){}
+		static void Init() {};
 		/**
 		* Returns monitor's DPI scale factor at given screen coordinates (expressed in pixels)
 		* @return Monitor's DPI scale factor at given point

@@ -37,12 +37,12 @@ namespace ZeroUI
 			return false;
 		}
 
-		virtual bool OnKeyDown( const int32 KeyCode, const uint32 CharacterCode, const bool IsRepeat ) 
+		virtual bool OnKeyDown( const int32_t KeyCode, const uint32_t CharacterCode, const bool IsRepeat ) 
 		{
 			return false;
 		}
 
-		virtual bool OnKeyUp( const int32 KeyCode, const uint32 CharacterCode, const bool IsRepeat )
+		virtual bool OnKeyUp( const int32_t KeyCode, const uint32_t CharacterCode, const bool IsRepeat )
 		{
 			return false;
 		}
