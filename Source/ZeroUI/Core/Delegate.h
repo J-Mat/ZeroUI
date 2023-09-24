@@ -1,6 +1,6 @@
 #pragma once
 
-#include <map>
+#include <map> 
 #include <functional>
 #include "Utils.h"
 
@@ -17,6 +17,7 @@ namespace ZeroUI
 	};
 
 
+	// ¶à²¥´úÀí
 	template<class TObjectType, class TReturn, typename ...ParamTypes>
 	class FObjectDelegate : public FDelegateBase<TReturn, ParamTypes...>
 	{
@@ -172,7 +173,7 @@ namespace ZeroUI
 		const FDelegateHandle AddFunction(TObjectType* Object, TReturn(TObjectType::* Funcation)(ParamTypes ...))
 		{
 			FDelegateHandle Handle;
-			this->insert({Handle, TDelegate()});
+			this->insert({ Handle, TDelegate() });
 			TDelegate& Delegate = this->at(Handle);
 			Delegate.Bind(Object, Funcation);
 			return Handle;
@@ -181,7 +182,7 @@ namespace ZeroUI
 		const FDelegateHandle AddFunction(TReturn(*InFuncation)(ParamTypes...))
 		{
 			FDelegateHandle Handle;
-			this->insert({Handle, TDelegate()});
+			this->insert({ Handle, TDelegate() });
 			TDelegate& Delegate = this->at(Handle);
 			Delegate.Bind(Funcation);
 

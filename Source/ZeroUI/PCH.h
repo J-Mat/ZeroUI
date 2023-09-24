@@ -30,6 +30,7 @@
 #include <stdexcept>
 #include <unordered_map>
 #include <unordered_set>
+#include <optional>
 
 #include "Core/Math/ZMath.h"
 #include "Core/Math/AABB.h"

@@ -63,39 +63,10 @@ namespace ZeroUI
 		virtual ~FWindowsApplication();
 
 	public:
-
-		/** Called by a window when an OLE Drag and Drop operation occurred on a non-game thread */
-		void DeferDragDropOperation(const FDeferredWindowsDragDropOperation& DeferredDragDropOperation);
-
-
-		/**
-		 * Adds a Windows message handler with the application instance.
-		 *
-		 * @param MessageHandler The message handler to register.
-		 * @see RemoveMessageHandler
-		 */
-		virtual void AddMessageHandler(IWindowsMessageHandler& InMessageHandler);
-
-		/**
-		 * Removes a Windows message handler with the application instance.
-		 *
-		 * @param MessageHandler The message handler to register.
-		 * @see AddMessageHandler
-		 */
-		virtual void RemoveMessageHandler(IWindowsMessageHandler& InMessageHandler);
-
-	public:
-
-		// GenericApplication overrides
-
-		virtual void SetMessageHandler(const TSharedRef< class FGenericApplicationMessageHandler >& InMessageHandler) override;
-#if WITH_ACCESSIBILITY
-		virtual void SetAccessibleMessageHandler(const TSharedRef<FGenericAccessibleMessageHandler>& InAccessibleMessageHandler) override;
-#endif
 		virtual void PumpMessages(const float TimeDelta) override;
 		virtual void ProcessDeferredEvents(const float TimeDelta) override;
-		virtual TSharedRef< FGenericWindow > MakeWindow() override;
-		virtual void InitializeWindow(const TSharedRef< FGenericWindow >& Window, const TSharedRef< FGenericWindowDefinition >& InDefinition, const TSharedPtr< FGenericWindow >& InParent, const bool bShowImmediately) override;
+		virtual Ref< FGenericWindow > MakeWindow() override;
+		virtual void InitializeWindow(const Ref< FGenericWindow >& Window, const Ref< FGenericWindowDefinition >& InDefinition, const Ref< FGenericWindow >& InParent, const bool bShowImmediately) override;
 
 	protected:
 		friend LRESULT WindowsApplication_WndProc(HWND hwnd, uint32_t msg, WPARAM wParam, LPARAM lParam);
@@ -104,24 +75,13 @@ namespace ZeroUI
 		static LRESULT CALLBACK AppWndProc(HWND hwnd, uint32_t msg, WPARAM wParam, LPARAM lParam);
 
 		/** Processes a single Windows message. */
-		int32_t ProcessMessage(HWND hwnd, uint32 msg, WPARAM wParam, LPARAM lParam);
+		int32_t ProcessMessage(HWND hwnd, uint32_t  msg, WPARAM wParam, LPARAM lParam);
 
 		/** Processes a deferred Windows message. */
-		int32 ProcessDeferredMessage(const FDeferredWindowsMessage& DeferredMessage);
-
-		/** Processes deferred drag and drop operations. */
-		void ProcessDeferredDragDropOperation(const FDeferredWindowsDragDropOperation& Op);
+		int32_t  ProcessDeferredMessage(const FDeferredWindowsMessage& DeferredMessage);
 
 		/** Hidden constructor. */
 		FWindowsApplication(const HINSTANCE HInstance, const HICON IconHandle);
-
-		void ApplyLowLevelMouseFilter();
-		void RemoveLowLevelMouseFilter();
-
-		static LRESULT CALLBACK HandleLowLevelMouseFilterHook(int nCode, WPARAM wParam, LPARAM lParam);
-
-		HHOOK LowLevelMouseFilterHook;
-		bool bLowLevelMouseFilterIsApplied = false;
 
 	private:
 
@@ -129,10 +89,10 @@ namespace ZeroUI
 		static bool RegisterClass(const HINSTANCE HInstance, const HICON HIcon);
 
 		/** Defers a Windows message for later processing. */
-		void DeferMessage(TSharedPtr<FWindowsWindow>& NativeWindow, HWND InHWnd, uint32 InMessage, WPARAM InWParam, LPARAM InLParam, int32 MouseX = 0, int32 MouseY = 0, uint32 RawInputFlags = 0);
+		void DeferMessage(Ref<FWindowsWindow>& NativeWindow, HWND InHWnd, uint32_t  InMessage, WPARAM InWParam, LPARAM InLParam, int32_t  MouseX = 0, int32_t  MouseY = 0, uint32_t  RawInputFlags = 0);
 
 
-		HINSTANCE InstanceHandle;
+		HINSTANCE m_InstanceHandle;
 
 		bool bMinimized;
 
@@ -147,10 +107,6 @@ namespace ZeroUI
 		bool bConsumeAltSpace;
 
 		std::vector<FDeferredWindowsMessage> DeferredMessages;
-
-
-		/** Registered Windows message handlers. */
-		std::vector<IWindowsMessageHandler*> MessageHandlers;
 
 		std::vector<Ref<FWindowsWindow>> Windows;
 

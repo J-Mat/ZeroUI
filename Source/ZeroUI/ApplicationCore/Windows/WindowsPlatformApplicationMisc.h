@@ -10,9 +10,8 @@ namespace ZeroUI
 		static void PreInit();
 		static void PumpMessages(bool bFromMainLoop);
 		static float GetDPIScaleFactorAtPoint(float X, float Y);
-		static class GenericApplication* CreateApplication();
+		static class GenericApplication* CreateApplication(HINSTANCE hInst);
 	};
 
 	typedef FWindowsPlatformApplicationMisc FPlatformApplicationMisc;
-
 }

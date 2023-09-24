@@ -1,4 +1,5 @@
 #include "WindowsPlatformApplicationMisc.h"
+#include "WindowsApplication.h"
 
 namespace ZeroUI
 {
@@ -15,8 +16,10 @@ namespace ZeroUI
 		return 1.0f;
 	}
 
-	GenericApplication* FWindowsPlatformApplicationMisc::CreateApplication()
+	class GenericApplication* FWindowsPlatformApplicationMisc::CreateApplication(HINSTANCE hInst)
 	{
-
+		HICON AppIconHandle = LoadIcon((HINSTANCE)NULL, IDI_APPLICATION);
+		return FWindowsApplication::CreateWindowsApplication(hInst, AppIconHandle);
 	}
+
 }

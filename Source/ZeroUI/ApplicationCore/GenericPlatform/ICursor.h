@@ -1,5 +1,3 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
-
 #pragma once
 #include "Core.h"
 
@@ -69,9 +67,9 @@ namespace ZeroUI
 		virtual ~ICursor() = default;
 
 		/** The position of the cursor */
-		virtual FVector2D GetPosition() const = 0;
+		virtual ZMath::vec2 GetPosition() const = 0;
 
 		/** Sets the position of the cursor */
-		virtual void SetPosition( const int32 X, const int32 Y ) = 0;
+		virtual void SetPosition( const int32_t X, const int32_t Y ) = 0;
 	};
 }

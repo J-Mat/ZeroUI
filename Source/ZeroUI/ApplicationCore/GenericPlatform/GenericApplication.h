@@ -11,7 +11,7 @@ namespace ZeroUI
 	*/
 	namespace EModifierKey
 	{
-		typedef uint8 Type;
+		typedef uint8_t Type;
 
 		/** No key. */
 		const Type None	= 0;
